@@ -33,6 +33,7 @@ export default class Graph {
         if (matrix[i][j] === 1) matrix[j][i] = matrix[i][j];
       }
     }
+    this.isDirected = !this.isDirected;
     return oldMatrix;
   }
   getDegreeOfNodes() {
@@ -197,7 +198,7 @@ export default class Graph {
     }
     return adjList;
   }
-  dfs(curr, des, adj, vis) {
+  dfs(curr, des, adj, vis = []) {
     // If the current node is the destination, return true
     if (curr === des) {
       return true;
